@@ -12,7 +12,7 @@ date_default_timezone_set(env('TIMEZONE', 'America/Sao_Paulo'));
 define('APP_NAME', env('APP_NAME', 'Lab Maker'));
 define('APP_ENV', env('APP_ENV', 'production'));
 define('APP_DEBUG', (int) env('APP_DEBUG', 0));
-define('BASE_URL', env('APP_BASE_URL', '/labmaker'));
+define('BASE_URL', env('APP_BASE_URL', ''));
 
 define('DB_HOST', env('DB_HOST', 'localhost'));
 define('DB_NAME', env('DB_NAME', ''));
