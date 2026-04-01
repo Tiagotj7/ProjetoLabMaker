@@ -1,24 +1,23 @@
 <?php
 require_once __DIR__ . '/env.php';
 
-// tenta carregar .env na raiz do projeto
+// Tenta carregar .env (se não existir, segue com defaults)
 env_load(__DIR__ . '/../.env');
+// Alternativa:
+// env_load(__DIR__ . '/../env.ini');
 
-// Se o InfinityFree bloquear ".env", troque para:
-# env_load(__DIR__ . '/../env.ini');
+$baseUrl = rtrim((string) env('APP_BASE_URL', ''), '/');
+define('BASE_URL', $baseUrl);
 
-date_default_timezone_set(env('TIMEZONE', 'America/Sao_Paulo'));
+// Banco (sem isso não funciona; mas se faltar, vai falhar de forma controlada)
+define('DB_HOST', (string) env('DB_HOST', 'localhost'));
+define('DB_NAME', (string) env('DB_NAME', ''));
+define('DB_USER', (string) env('DB_USER', ''));
+define('DB_PASS', (string) env('DB_PASS', ''));
 
-define('APP_NAME', env('APP_NAME', 'Lab Maker'));
-define('APP_ENV', env('APP_ENV', 'production'));
-define('APP_DEBUG', (int) env('APP_DEBUG', 0));
-define('BASE_URL', env('APP_BASE_URL', ''));
+// Uploads (defaults)
+define('UPLOAD_DIR', __DIR__ . '/../public/uploads');
+define('UPLOAD_URL', 'public/uploads');
 
-define('DB_HOST', env('DB_HOST', 'localhost'));
-define('DB_NAME', env('DB_NAME', ''));
-define('DB_USER', env('DB_USER', ''));
-define('DB_PASS', env('DB_PASS', ''));
-
-// Uploads (dir físico e url)
-define('UPLOAD_DIR', __DIR__ . '/../' . trim(env('UPLOAD_DIR', 'public/uploads'), '/'));
-define('UPLOAD_URL', trim(env('UPLOAD_DIR', 'public/uploads'), '/'));
+// Timezone fixa (sem depender de .env)
+date_default_timezone_set('America/Sao_Paulo');
