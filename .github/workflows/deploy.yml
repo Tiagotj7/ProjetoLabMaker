@@ -1,0 +1,43 @@
+name: Deploy to InfinityFree (FTP)
+
+on:
+  push:
+    branches: ["main"]
+
+concurrency:
+  group: deploy-infinityfree
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+
+          protocol: ftp
+          port: 21
+
+          # ajuste se necessário: htdocs/ ou htdocs/labmaker/
+          server-dir: htdocs/
+
+          local-dir: ./
+
+          exclude: |
+            **/.git*
+            **/.github/**
+            **/node_modules/**
+            **/vendor/**
+            **/*.md
+            **/tests/**
+            **/.env
+            **/env.ini
+            **/storage/**
+            **/public/uploads/**
