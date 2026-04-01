@@ -12,6 +12,6 @@ try {
     ]
   );
 } catch (Exception $e) {
-  // Evita expor detalhes (heurística: mensagens claras sem info sensível)
-  die("Erro ao conectar ao banco de dados.");
+  // TEMPORÁRIO para diagnóstico:
+  die("Erro ao conectar no banco: " . $e->getMessage());
 }
