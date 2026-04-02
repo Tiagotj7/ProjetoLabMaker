@@ -22,8 +22,8 @@ small.help{color:var(--muted)}
 .badge{padding:4px 8px;border-radius:999px;font-size:.8rem}
 .b0{background:rgba(108,124,255,.25)}
 .b1{background:rgba(255,176,32,.25)}
-.b2{background:rgba(79,140,255,.25)}
-.b3{background:rgba(39,192,125,.25)}
+.b2{background:rgba(255, 149, 0, 0.905)}
+.b3{background:rgb(34, 193, 124)}
 .kanban{display:grid;grid-template-columns:1fr;gap:10px}
 @media(min-width:900px){.kanban{grid-template-columns:repeat(4,1fr)}}
 .col{background:rgba(255,255,255,.03);border:1px dashed rgba(255,255,255,.12);border-radius:14px;padding:10px}
