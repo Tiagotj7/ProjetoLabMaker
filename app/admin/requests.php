@@ -66,6 +66,9 @@ require_once __DIR__ . '/../partials/header.php';
                 <input type="hidden" name="toggle_active" value="1">
                 <button class="btn secondary" type="submit">Arquivar (0/1)</button>
               </form>
+
+              <a class="btn secondary" href="<?= BASE_URL ?>/app/admin/request_view.php?id=<?= (int)$it['id'] ?>">Detalhes</a>
+
             </div>
 
             <?php if (!empty($it['attachment_path'])): ?>

@@ -20,6 +20,13 @@ require_once __DIR__ . '/../partials/header.php';
       <p style="color:var(--muted)">Atualizar etapas do Kanban e arquivar (0/1).</p>
       <span class="btn">Abrir</span>
     </a>
+
+    <a class="card" href="<?= BASE_URL ?>/app/admin/bookings.php">
+      <h3>Ver reservas</h3>
+      <p style="color:var(--muted)">Visualizar quem reservou os horários.</p>
+      <span class="btn">Abrir</span>
+    </a>
+
   </div>
 
   <a class="btn secondary" href="<?= BASE_URL ?>/public/logout.php">Sair</a>
