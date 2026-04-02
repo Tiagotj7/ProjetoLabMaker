@@ -33,9 +33,9 @@ require_once __DIR__ . '/../../bootstrap/helpers.php';
         <div class="theme-toggle" aria-label="Alternar tema">
           <label class="theme-switch" title="Alternar tema claro/escuro">
             <input id="themeToggle" type="checkbox" aria-label="Alternar tema claro/escuro">
-            <span class="moon">🌙</span> <!--  --- IGNORE --->
+        <!--     <span class="moon">🌙</span>  --- IGNORE --->
             <span class="slider"></span>
-            <span class="sun">☀️</span> <!-- --- IGNORE --->
+        <!--   <span class="sun">☀️</span>  --- IGNORE --->
           </label>
         </div>
         <?php if (is_admin()): ?>
