@@ -1,35 +1,284 @@
-:root{
-  --bg:#0b1220; --card:#111a2e; --text:#eaf0ff; --muted:#aab6d6;
-  --pri:#4f8cff; --ok:#27c07d; --warn:#ffb020; --info:#6c7cff; --danger:#ff4d4d;
+/* =========================
+   Lab Maker - style.css
+   Mobile-first + Dark/Light theme (CSS variables)
+   ========================= */
+
+/* -------- Theme tokens (default: dark) -------- */
+:root {
+  --bg: #0b1220;
+  --card: #111a2e;
+  --text: #eaf0ff;
+  --muted: #aab6d6;
+  --pri: #4f8cff;
+  --ok: #27c07d;
+  --warn: #ffb020;
+  --info: #6c7cff;
+  --danger: #ff4d4d;
+
+  --input: #0e1730;
+  --border: rgba(255, 255, 255, .12);
+  --border-soft: rgba(255, 255, 255, .06);
+  --shadow: 0 10px 30px rgba(0, 0, 0, .25);
 }
-*{box-sizing:border-box;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
-body{margin:0;background:var(--bg);color:var(--text)}
-a{color:var(--pri);text-decoration:none}
-.container{max-width:980px;margin:0 auto;padding:14px}
-.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
-.brand{font-weight:700}
-.card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:14px;margin:10px 0}
-.btn{display:inline-block;padding:10px 12px;border-radius:12px;background:var(--pri);color:#fff;border:0;cursor:pointer}
-.btn.secondary{background:transparent;border:1px solid rgba(255,255,255,.15)}
-.grid{display:grid;grid-template-columns:1fr;gap:10px}
-@media(min-width:720px){.grid{grid-template-columns:1fr 1fr}}
-label{display:block;margin:10px 0 6px;color:var(--muted);font-size:.95rem}
-input,textarea,select{
-  width:100%;padding:10px;border-radius:12px;border:1px solid rgba(255,255,255,.12);
-  background:#0e1730;color:var(--text);outline:none
+
+/* -------- Light theme overrides -------- */
+[data-theme="light"] {
+  --bg: #f6f7fb;
+  --card: #ffffff;
+  --text: #0b1220;
+  --muted: #4b5563;
+  --pri: #2563eb;
+  --ok: #0f9d58;
+  --warn: #b45309;
+  --info: #4f46e5;
+  --danger: #dc2626;
+
+  --input: #f3f4f6;
+  --border: rgba(0, 0, 0, .14);
+  --border-soft: rgba(0, 0, 0, .08);
+  --shadow: 0 10px 30px rgba(0, 0, 0, .08);
 }
-small.help{color:var(--muted)}
-.badge{padding:4px 8px;border-radius:999px;font-size:.8rem}
-.b0{background:rgba(108,124,255,.25)}
-.b1{background:rgba(255,176,32,.25)}
-.b2{background:rgba(255, 149, 0, 0.905)}
-.b3{background:rgb(34, 193, 124)}
-.kanban{display:grid;grid-template-columns:1fr;gap:10px}
-@media(min-width:900px){.kanban{grid-template-columns:repeat(4,1fr)}}
-.col{background:rgba(255,255,255,.03);border:1px dashed rgba(255,255,255,.12);border-radius:14px;padding:10px}
-.col h3{margin:6px 0 10px;font-size:1rem;color:var(--muted)}
-.kcard{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:10px;margin:8px 0}
-.row{display:flex;gap:10px;flex-wrap:wrap}
-.notice{padding:10px;border-radius:12px;background:rgba(79,140,255,.12);border:1px solid rgba(79,140,255,.25)}
-.error{padding:10px;border-radius:12px;background:rgba(255,77,77,.12);border:1px solid rgba(255,77,77,.25)}
-hr{border:0;border-top:1px solid rgba(255,255,255,.08);margin:14px 0}
+
+/* -------- Base -------- */
+* {
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+a {
+  color: var(--pri);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 14px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.brand {
+  font-weight: 700;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* -------- Cards / layout -------- */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border-soft);
+  border-radius: 14px;
+  padding: 14px;
+  margin: 10px 0;
+  box-shadow: var(--shadow);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+@media(min-width:720px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* -------- Buttons -------- */
+.btn {
+  display: inline-block;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--pri);
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+  line-height: 1.1;
+}
+
+.btn:hover {
+  filter: brightness(1.05);
+  text-decoration: none;
+}
+
+.btn.secondary {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.btn.danger {
+  background: var(--danger);
+  color: #fff;
+}
+
+/* -------- Forms -------- */
+label {
+  display: block;
+  margin: 10px 0 6px;
+  color: var(--muted);
+  font-size: .95rem;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--input);
+  color: var(--text);
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: color-mix(in srgb, var(--pri) 65%, var(--border));
+}
+
+small.help {
+  color: var(--muted);
+}
+
+/* -------- Notices -------- */
+.notice {
+  padding: 10px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--pri) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--pri) 25%, transparent);
+}
+
+.error {
+  padding: 10px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--danger) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--danger) 25%, transparent);
+}
+
+/* -------- Badges (Kanban stages) -------- */
+.badge {
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: .8rem;
+  border: 1px solid transparent;
+}
+
+.b0 {
+  /* Recebido */
+  background: rgba(108, 124, 255, .25);
+  border-color: rgba(108, 124, 255, .45);
+}
+
+.b1 {
+  /* Análise */
+  background: rgba(255, 176, 32, .25);
+  border-color: rgba(255, 176, 32, .45);
+}
+
+.b2 {
+  /* Fazendo - altere aqui a cor se quiser */
+  background: rgba(180, 80, 255, .28);
+  border-color: rgba(180, 80, 255, .55);
+}
+
+.b3 {
+  /* Concluído */
+  background: rgba(39, 192, 125, .25);
+  border-color: rgba(39, 192, 125, .45);
+}
+
+/* -------- Kanban layout -------- */
+.kanban {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+@media(min-width:900px) {
+  .kanban {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.col {
+  background: color-mix(in srgb, var(--card) 60%, transparent);
+  border: 1px dashed var(--border);
+  border-radius: 14px;
+  padding: 10px;
+}
+
+.col h3 {
+  margin: 6px 0 10px;
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+.kcard {
+  background: var(--card);
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  padding: 10px;
+  margin: 8px 0;
+}
+
+/* (Opcional) Se você aplicou stage class na coluna (col stage-0..3) */
+.col.stage-0 {
+  border-color: rgba(108, 124, 255, .45);
+  background: rgba(108, 124, 255, .06);
+}
+
+.col.stage-1 {
+  border-color: rgba(255, 176, 32, .50);
+  background: rgba(255, 176, 32, .06);
+}
+
+.col.stage-2 {
+  border-color: rgba(180, 80, 255, .55);
+  background: rgba(180, 80, 255, .08);
+}
+
+.col.stage-3 {
+  border-color: rgba(39, 192, 125, .45);
+  background: rgba(39, 192, 125, .06);
+}
+
+/* -------- Misc -------- */
+hr {
+  border: 0;
+  border-top: 1px solid var(--border-soft);
+  margin: 14px 0;
+}
