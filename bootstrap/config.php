@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . '/env.php';
 
-// InfinityFree: preferir env.ini (sem ponto)
 env_load(__DIR__ . '/../env.ini');
 
 define('BASE_URL', rtrim((string) env('APP_BASE_URL', ''), '/'));
