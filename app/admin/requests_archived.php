@@ -33,7 +33,7 @@ require_once __DIR__ . '/../partials/header.php';
           <div class="row">
             <a class="btn secondary" href="<?= BASE_URL ?>/app/admin/request_view.php?id=<?= (int)$it['id'] ?>">Detalhes</a>
 
-            <form method="post" action="<?= BASE_URL ?>/app/admin/requests_restore.php" onsubmit="return confirm('Restaurar esta solicitação? (is_active=1)');">
+            <form method="post" action="<?= BASE_URL ?>/app/admin/requests_restore.php" onsubmit="return confirm('Restaurar esta solicitação?');">
               <input type="hidden" name="id" value="<?= (int)$it['id'] ?>">
               <button class="btn" type="submit">Restaurar</button>
             </form>
