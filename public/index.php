@@ -8,17 +8,19 @@ require_once __DIR__ . '/../bootstrap/config.php';
   <p style="color:var(--muted)">Escolha uma opção:</p>
 
   <div class="grid">
-    <a class="card" href="<?= BASE_URL ?>/app/public/booking.php">
+
+    <div class="card">
       <h3>Agendamentos</h3>
       <p style="color:var(--muted)">Alocação do espaço Lab Maker (datas e horários).</p>
-      <span class="btn">Ver horários</span>
-    </a>
+      <a class="btn" href="<?= BASE_URL ?>/app/public/booking.php">Ver horários</a>
+    </div>
 
-    <a class="card" href="<?= BASE_URL ?>/app/public/request_home.php">
+    <div class="card">
       <h3>Solicitações</h3>
       <p style="color:var(--muted)">Criar e acompanhar solicitações em Kanban.</p>
-      <span class="btn">Acessar</span>
-    </a>
+      <a class="btn" href="<?= BASE_URL ?>/app/public/request_home.php">Acessar</a>
+    </div>
+
   </div>
 </div>
 
