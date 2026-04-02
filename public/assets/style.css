@@ -61,8 +61,18 @@ a {
   text-decoration: none;
 }
 
+/* Links normais podem sublinhar */
 a:hover {
   text-decoration: underline;
+}
+
+/* Mas links que viram "card clicável" NÃO devem sublinhar */
+a.card:hover {
+  text-decoration: none;
+}
+
+a.card * {
+  text-decoration: none;
 }
 
 .container {
