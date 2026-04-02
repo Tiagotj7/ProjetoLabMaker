@@ -30,7 +30,7 @@ require_once __DIR__ . '/../partials/header.php';
 
     <div class="card">
       <h3>Solicitações arquivadas</h3>
-      <p style="color:var(--muted)">Visualizar e restaurar itens (is_active=0).</p>
+      <p style="color:var(--muted)">Visualizar e restaurar itens.</p>
       <a class="btn" href="<?= BASE_URL ?>/app/admin/requests_archived.php">Abrir</a>
     </div>
 
