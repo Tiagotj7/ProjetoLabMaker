@@ -61,7 +61,7 @@ require_once __DIR__ . '/../partials/header.php';
                 <button class="btn" type="submit">Atualizar</button>
               </form>
 
-              <form method="post" onsubmit="return confirm('Arquivar solicitação?');">
+              <form method="post" onsubmit="return confirm('Arquivar solicitação?  (is_active=0)');">
                 <input type="hidden" name="id" value="<?= (int)$it['id'] ?>">
                 <input type="hidden" name="toggle_active" value="1">
                 <button class="btn secondary" type="submit">Arquivar (0/1)</button>
